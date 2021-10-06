@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="radius" sid="126924987768290" static="0" type="number">77</variable>
+        <variable constant="0" name="cSpeed" sid="384186362822911" static="0" type="number">0.1</variable>
+        <variable constant="0" name="speed" sid="126480014454924" static="0" type="number">150</variable>
+        <variable constant="0" name="dragUID" sid="846733343889508" static="0" type="number">-1</variable>
+        <variable constant="0" name="r" sid="438540187156847" static="0" type="number">54</variable>
+        <variable constant="0" name="g" sid="785510366136436" static="0" type="number">0</variable>
+        <variable constant="0" name="b" sid="480554773363381" static="0" type="number">0</variable>
+        <event-block sid="503378456571718">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="227954316765490" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="922967451243388">
+                    <conditions>
+                        <condition id="-20" name="Is on mobile device" sid="108009301626882" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="657955698406726" type="uiBgBlur" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="384664818668877">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="506461084996935" type="System" />
+            </conditions>
+            <actions>
+                <action id="-23" name="Move at angle" sid="499360641340244" type="circle">
+                    <param id="0" name="Angle">270</param>
+                    <param id="1" name="Distance">Self.speed*dt</param>
+                </action>
+                <action id="-7" name="Set size" sid="128257551080802" type="circle">
+                    <param id="0" name="Width">clamp(Self.w*((Browser.WindowInnerHeight-Self.Y)/Browser.WindowInnerHeight), 1, Self.w*2)</param>
+                    <param id="1" name="Height">clamp(Self.w*((Browser.WindowInnerHeight-Self.Y)/Browser.WindowInnerHeight), 1, Self.w*2)</param>
+                </action>
+                <action id="-3" name="Set position" sid="668640868689405" type="uiBgBlur">
+                    <param id="0" name="X">uiBg.X</param>
+                    <param id="1" name="Y">uiBg.y</param>
+                </action>
+                <action id="-7" name="Set size" sid="899506165577469" type="uiBgBlur">
+                    <param id="0" name="Width">uiBg.Width</param>
+                    <param id="1" name="Height">uiBg.height</param>
+                </action>
+                <action disabled="1" id="0" name="Set text" sid="414244061627299" type="menuText">
+                    <param id="0" name="Text">Browser.WindowInnerHeight</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="804326689978503">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="628811147074033" type="SliderBar">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;r&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="110501382173755" type="System">
+                            <param id="0" name="Variable">r</param>
+                            <param id="1" name="Value">SliderBar.Value/2.55</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="388572783667552">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="773674711468567" type="SliderBar">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;g&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="514763771130139" type="System">
+                            <param id="0" name="Variable">g</param>
+                            <param id="1" name="Value">SliderBar.Value/2.55</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="879459956762506">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="832844832575616" type="SliderBar">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;b&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="969965163261923" type="System">
+                            <param id="0" name="Variable">b</param>
+                            <param id="1" name="Value">SliderBar.Value/2.55</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="117150857466834">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="436151824635792" type="SliderBar">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;sp&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="705285133165945" type="System">
+                            <param id="0" name="Variable">speed</param>
+                            <param id="1" name="Value">SliderBar.Value</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="568609166247569">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="898807275922184" type="SliderBar">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;csp&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="234717733930638" type="System">
+                            <param id="0" name="Variable">cSpeed</param>
+                            <param id="1" name="Value">SliderBar.Value</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="146684824196579">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="875170262304709" type="SliderBar">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;rad&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="387531899221875" type="System">
+                            <param id="0" name="Variable">radius</param>
+                            <param id="1" name="Value">SliderBar.Value</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="273233546216910">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="869161833278149" type="circle">
+                            <param id="0" name="Unique ID">dragUID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="676376415010684" type="circle">
+                            <param id="0" name="X">lerp(Self.X, Touch.X, 1 - 0.001 ^ dt)</param>
+                            <param id="1" name="Y">lerp(Self.y, Touch.y, 1 - 0.001 ^ dt)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="115968373860562">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="542551283999645" type="circle">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="Y co-ordinate">-50-Self.width</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="190423150048447" type="circle" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="652475678144384">
+            <conditions>
+                <condition id="2" name="On changed" sid="827264326159538" type="SliderBar" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="993653865458363">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="613493414274371" type="SliderBar">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;r&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-28" name="Set effect parameter" sid="649822256189365" type="circle">
+                            <param id="0" name="Effect">&quot;Tint&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">r-random(15, -15)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="730128506195005">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="542512013598123" type="SliderBar">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;g&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-28" name="Set effect parameter" sid="896708089278659" type="circle">
+                            <param id="0" name="Effect">&quot;Tint&quot;</param>
+                            <param id="1" name="Parameter index">1</param>
+                            <param id="2" name="Value">g-random(15, -15)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="803850144156721">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="671490154210124" type="SliderBar">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;b&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-28" name="Set effect parameter" sid="585670558349133" type="circle">
+                            <param id="0" name="Effect">&quot;Tint&quot;</param>
+                            <param id="1" name="Parameter index">2</param>
+                            <param id="2" name="Value">b-random(15, -15)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="190637684805035">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="335319429819366" type="SliderBar">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;sp&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="418296846930694" type="circle">
+                            <param id="0" name="Instance variable">speed</param>
+                            <param id="1" name="Value">speed-random(45, -20)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="612059825472230">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="226125204859315" type="SliderBar">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;rad&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="561719325934077" type="circle">
+                            <param id="0" name="Instance variable">w</param>
+                            <param id="1" name="Value">radius</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="434219951582835">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="508558371974780" type="System">
+                    <param id="0" name="Interval (seconds)">random(cSpeed/2, cspeed)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="549921019400234">
+                    <conditions>
+                        <condition id="-20" inverted="1" name="Is on mobile device" sid="626320070730893" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="396696980661879">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="246126251115925" type="System">
+                                    <param id="0" name="First value">Browser.WindowInnerHeight</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Second value">864</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="218898356205253" type="System">
+                                    <param id="0" name="Object to create">circle</param>
+                                    <param id="1" name="Layer">&quot;game&quot;</param>
+                                    <param id="2" name="X">random(0, Browser.WindowInnerWidth)</param>
+                                    <param id="3" name="Y">random(Browser.WindowInnerHeight+radius, Browser.WindowInnerHeight+(radius*1.3))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="696749068132049">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="446933282912389" type="System">
+                                    <param id="0" name="First value">Browser.WindowInnerHeight</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">864</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="657040981648169" type="System">
+                                    <param id="0" name="Object to create">circle</param>
+                                    <param id="1" name="Layer">&quot;game&quot;</param>
+                                    <param id="2" name="X">random(0, Browser.WindowInnerWidth)</param>
+                                    <param id="3" name="Y">random(Browser.WindowInnerHeight+radius, Browser.WindowInnerHeight+(radius*1.3))*2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="289083598031777">
+                    <conditions>
+                        <condition id="-20" name="Is on mobile device" sid="566771132963172" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="475340934837339" type="System">
+                            <param id="0" name="Object to create">circle</param>
+                            <param id="1" name="Layer">&quot;game&quot;</param>
+                            <param id="2" name="X">random(0, WindowWidth)</param>
+                            <param id="3" name="Y">random(WindowHeight+radius, WindowHeight+(radius*1.3))</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block disabled="1" sid="213496888428326">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="412915023419455" type="System">
+                                    <param id="0" name="First value">WindowHeight</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Second value">864</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block disabled="1" sid="950090721105890">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="417991407482162" type="System">
+                                    <param id="0" name="First value">WindowHeight</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">864</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="905004530559267" type="System">
+                                    <param id="0" name="Object to create">circle</param>
+                                    <param id="1" name="Layer">&quot;game&quot;</param>
+                                    <param id="2" name="X">random(0, WindowWidth)</param>
+                                    <param id="3" name="Y">random(WindowHeight+radius, WindowHeight+(radius*1.3))*2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="426547716688477">
+            <conditions>
+                <condition id="-18" name="On created" sid="376003436585708" type="circle" />
+            </conditions>
+            <actions>
+                <action id="-28" name="Set effect parameter" sid="665996093183098" type="circle">
+                    <param id="0" name="Effect">&quot;Tint&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">r-random(15, -15)</param>
+                </action>
+                <action id="-28" name="Set effect parameter" sid="718050122723876" type="circle">
+                    <param id="0" name="Effect">&quot;Tint&quot;</param>
+                    <param id="1" name="Parameter index">1</param>
+                    <param id="2" name="Value">g-random(15, -15)</param>
+                </action>
+                <action id="-28" name="Set effect parameter" sid="627246645824216" type="circle">
+                    <param id="0" name="Effect">&quot;Tint&quot;</param>
+                    <param id="1" name="Parameter index">2</param>
+                    <param id="2" name="Value">b-random(15, -15)</param>
+                </action>
+                <action id="-10" name="Set value" sid="848307859973474" type="circle">
+                    <param id="0" name="Instance variable">speed</param>
+                    <param id="1" name="Value">speed-random(45, -20)</param>
+                </action>
+                <action id="-10" name="Set value" sid="622693939786873" type="circle">
+                    <param id="0" name="Instance variable">w</param>
+                    <param id="1" name="Value">radius</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="404484006418091">
+            <conditions>
+                <condition id="3" name="On touched object" sid="768771951623682" type="Touch">
+                    <param id="0" name="Object">circle</param>
+                </condition>
+                <condition id="-17" name="Pick top/bottom" sid="566958410865390" type="circle">
+                    <param id="0" name="Which">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="267148648689121" type="System">
+                    <param id="0" name="Variable">dragUID</param>
+                    <param id="1" name="Value">circle.UID</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="426476173137598">
+            <conditions>
+                <condition id="1" name="On any touch end" sid="522272976934136" type="Touch" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="140842361854286" type="System">
+                    <param id="0" name="Variable">dragUID</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block disabled="1" sid="577007393221551">
+            <conditions>
+                <condition id="-18" name="On created" sid="974480179778952" type="menuText" />
+            </conditions>
+            <actions>
+                <action behavior="Pin" id="0" name="Pin to object" sid="473210720859258" type="menuText">
+                    <param id="0" name="Pin to">uiBg</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block disabled="1" sid="893649429932899">
+            <conditions>
+                <condition id="-18" name="On created" sid="319239394842787" type="SliderBar" />
+            </conditions>
+            <actions>
+                <action behavior="Pin" id="0" name="Pin to object" sid="350023315645887" type="SliderBar">
+                    <param id="0" name="Pin to">uiBg</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+                <action behavior="Anchor" id="0" name="Set enabled" sid="637650737092592" type="SliderBar">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block disabled="1" sid="323923223367825">
+            <conditions>
+                <condition id="-18" name="On created" sid="978674915586436" type="uiBg" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="247433184057720" type="System">
+                    <param id="0" name="Seconds">0.0001</param>
+                </action>
+                <action behavior="Anchor" id="0" name="Set enabled" sid="289561265135594" type="uiBg">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="616197860647735">
+            <conditions>
+                <condition id="3" name="On touched object" sid="955028186434854" type="Touch">
+                    <param id="0" name="Object">menuText</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="338583212198112">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="300563107033382" type="menuText">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;menTg&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="700288251159274">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="880716044936808" type="uiBg">
+                                    <param id="0" name="Instance variable">menu</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="924791886725617" type="System">
+                                    <param id="0" name="Seconds">0.0000001</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="794857773778393" type="uiBg">
+                                    <param id="0" name="Instance variable">menu</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="0" name="Set text" sid="202252298405989" type="menuText">
+                                    <param id="0" name="Text">&quot;show menu&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="346835893647688">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="400929510604902" type="uiBg">
+                                    <param id="0" name="Instance variable">menu</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="650919536541391" type="System">
+                                    <param id="0" name="Seconds">0.0000001</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="781123076873527" type="uiBg">
+                                    <param id="0" name="Instance variable">menu</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="977536589746161" type="menuText">
+                                    <param id="0" name="Text">&quot;hide menu&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="247650904740023">
+            <conditions>
+                <condition id="-8" name="Is boolean instance variable set" sid="224438339329283" type="uiBg">
+                    <param id="0" name="Instance variable">menu</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-6" name="Set height" sid="269888033590038" type="uiBg">
+                    <param id="0" name="Height">lerp(Self.Height, 384, 1 - 0.000001 ^ dt)</param>
+                </action>
+                <action id="1" name="Set visible" sid="518529804485568" type="SliderBar">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="370948923477008">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="382965086247900" type="System">
+                            <param id="0" name="Object">menuText</param>
+                        </condition>
+                        <condition id="-7" inverted="1" name="Compare instance variable" sid="934718702295724" type="menuText">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;menTg&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="779434540582561" type="menuText">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="610451709147981">
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="829361019466841" type="uiBg">
+                    <param id="0" name="Instance variable">menu</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-6" name="Set height" sid="353350803656968" type="uiBg">
+                    <param id="0" name="Height">lerp(Self.Height, 64, 1 - 0.000001 ^ dt)</param>
+                </action>
+                <action id="1" name="Set visible" sid="988705463783489" type="SliderBar">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="774757736803907">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="589117897358335" type="System">
+                            <param id="0" name="Object">menuText</param>
+                        </condition>
+                        <condition id="-7" inverted="1" name="Compare instance variable" sid="325532364395577" type="menuText">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;menTg&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="797624124046980" type="menuText">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="176167007338818">
+            <conditions>
+                <condition id="20" name="On update ready" sid="814781298099167" type="Browser" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set font color" sid="575142559503477" type="Text">
+                    <param id="0" name="Color">rgb(0, 255, 0)</param>
+                </action>
+                <action id="0" name="Set text" sid="906535398906561" type="Text">
+                    <param id="0" name="Text">&quot;there is an update&quot;&amp;newline&amp;&quot;refresh page&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
